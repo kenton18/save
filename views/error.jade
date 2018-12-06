@@ -1,0 +1,41 @@
+head
+    title = "error"
+
+
+doctype html
+head
+  title='Food Manager System'
+  link(rel="stylesheet", href="stylesheets/reset.css")
+  link(rel="stylesheet", href="stylesheets/index.css")
+body
+  .wrapper
+    header
+      h1='Food Manager'
+    nav
+      ul
+        li.gnav1='Input'
+        li.gnav2='Tab2'
+        li.gnav3='Tab3'
+        li.gnav4='Tab4'
+    #contents.contents
+      .container
+        article#page1.show.top
+          section
+            iframe(src="/input", width="700", height="450")
+        article#page2
+          section
+        article#page3
+          section
+            h1='Tab3 Title'
+            p='This is tab three.'
+        article#page4
+          section
+            h1='Tab4 Title'
+            p='This is tab four.'
+        article#page5
+          section
+            h1='Tab5 Title'
+            p='This is tab five'
+  script(src="javascripts/jquery-2.2.4.min.js")
+  script(src="javascripts/jquery-ui.min.js")
+  script(src="javascripts/script.js")

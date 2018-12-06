@@ -1,0 +1,168 @@
+html.no-js(lang='en')
+head
+    meta(charset='UTF-8')
+    | 
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    link(rel='stylesheet', href='stylesheets/reset.css')
+    // CSS reset
+    link(rel='stylesheet', href='stylesheets/style.css')
+    | 
+    link(rel='stylesheet', href='stylesheets/show.css')
+    // Resource style
+    // <script src="js/modernizr.js"></script>  Modernizr
+    title Filters
+  body
+    main.cd-main-content
+      .cd-tab-filter-wrapper
+        .cd-tab-filter
+          ul.cd-filters
+            li.placeholder
+              a(data-type='all', href='#0')
+              // selected option on mobile
+            li.filter
+              a.selected(href='#0', data-type='all') All 
+              
+            li.filter(data-filter='.false')
+              a(href='#0', data-type='false') Not Expired
+              
+            li.filter(data-filter='.true')
+              a(href='#0', data-type='true') Expired
+          // cd-filters
+        // cd-tab-filter
+      // cd-tab-filter-wrapper
+      section.cd-gallery
+        ul
+          
+            -for (var i = 0 ; i < length ; i++){
+              - var a = "."+Isexpired[i]
+              - var b = "."+Food_type[i]
+              - var lsitClass= "mix"+" "+Isexpired[i]+" "+Food_type[i]
+              li(class=lsitClass)
+                a.card
+                  span.card-summary
+                    |Food Name: #{food_name[i]}
+                    p
+                    hr
+                    hr
+                    p
+                    |Buy Day: 
+                    p
+                    |#{buyFoodDate[i][2]+" "+buyFoodDate[i][1]+" "+buyFoodDate[i][3]}
+                    
+                    p
+                    hr
+                    hr
+                    p
+                    |Best Before Date:
+                    p 
+                    |#{bestBeforeDate[i][2]+" "+bestBeforeDate[i][1]+" "+bestBeforeDate[i][3]} 
+                    p
+                    hr
+                    hr
+                    p
+                    |Expired Date: 
+                    p
+                    |#{expiredDate[i][2]+" "+expiredDate[i][1]+" "+expiredDate[i][3]}
+                    hr
+                    hr
+            -}
+            
+        .cd-fail-message No results found
+      // cd-gallery
+      .cd-filter
+        form
+          .cd-filter-block
+            h4 Search
+            | 
+            | 
+            .cd-filter-content
+              input(type='search', placeholder='')
+            // cd-filter-content
+          // cd-filter-block
+          .cd-filter-block
+            h4 Food Type
+            | 
+            ul.cd-filter-content.cd-filters.list
+              li
+                input#checkbox1.filter(data-filter='.Meat', type='checkbox')
+                |     
+                label.checkbox-label(for='checkbox1') Meat
+              | 
+              li
+                input#checkbox2.filter(data-filter='.Seafood', type='checkbox')
+                | 
+                label.checkbox-label(for='checkbox2') Seafood
+              | 
+              li
+                input#checkbox3.filter(data-filter='.Egg', type='checkbox')
+                | 
+                label.checkbox-label(for='checkbox3') Egg
+              | 
+              | 
+              li
+                input#checkbox3.filter(data-filter='.Dairy', type='checkbox')
+                | 
+                label.checkbox-label(for='checkbox3') Dairy
+              | 
+              | 
+              li
+                input#checkbox3.filter(data-filter='.Fruits', type='checkbox')
+                | 
+                label.checkbox-label(for='checkbox3') Fruits
+              | 
+              | 
+              li
+                input#checkbox3.filter(data-filter='.Vegetables', type='checkbox')
+                | 
+                label.checkbox-label(for='checkbox3') Vegetables
+              | 
+              | 
+              li
+                input#checkbox3.filter(data-filter='.Drinks', type='checkbox')
+                | 
+                label.checkbox-label(for='checkbox3') Drinks
+            // cd-filter-content
+          // cd-filter-block
+          //
+            <div class="cd-filter-block">
+            <h4>Select</h4>
+            <div class="cd-filter-content">
+            <div class="cd-select cd-filters">
+            <select class="filter" name="selectThis" id="selectThis">
+            <option value="">Choose an option</option>
+            <option value=".option1">Option 1</option>
+            <option value=".option2">Option 2</option>
+            <option value=".option3">Option 3</option>
+            <option value=".option4">Option 4</option>
+            </select>
+            </div> <!-- cd-select
+          // </div> <!-- cd-filter-content
+          // </div> <!-- cd-filter-block
+          //
+            <div class="cd-filter-block">
+            <h4>Radio buttons</h4>
+            <ul class="cd-filter-content cd-filters list">
+            <li>
+            <input class="filter" data-filter="" type="radio" name="radioButton" id="radio1" checked>
+            <label class="radio-label" for="radio1">All</label>
+            </li>
+            <li>
+            <input class="filter" data-filter=".radio2" type="radio" name="radioButton" id="radio2">
+            <label class="radio-label" for="radio2">Choice 2</label>
+            </li>
+            <li>
+            <input class="filter" data-filter=".radio3" type="radio" name="radioButton" id="radio3">
+            <label class="radio-label" for="radio3">Choice 3</label>
+            </li>
+            </ul> <!-- cd-filter-content
+          // </div> <!-- cd-filter-block
+        | 
+        a.cd-close(href='#0') Close
+      // cd-filter
+      a.cd-filter-trigger(href='#0') Filters
+    // cd-main-content
+    script(src='javascripts/jquery-2.1.1.js')
+    script(src='javascripts/jquery.mixitup.min.js')
+    script(src='javascripts/main.js')
+    // Resource jQuery
